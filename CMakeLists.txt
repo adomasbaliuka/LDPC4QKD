@@ -33,7 +33,7 @@ option(BUILD_RUNTIME_BENCHMARKS
         "Enables building of runtime performance benchmarks.
         The benchmarks use the Google Benchmark framework, which must be installed.
         "
-        OFF
+        ON
         )
 
 option(BUILD_UNIT_TESTS

@@ -5,39 +5,39 @@ cmake_minimum_required(VERSION 3.19)
 project(ErrorCorrectionDemoForQKD)
 
 # google benchmark library. Only required for the targets called "benchmark", i.e., for runtime speed benchmarking.
-find_package(benchmark REQUIRED)
+# find_package(benchmark REQUIRED)  
 
-# --------------------------------------------------------------------------------------------------- Encoder Benchmarks
-add_executable(benchmark_encoder main_benchmark_encoder.cpp
-        )
+# # --------------------------------------------------------------------------------------------------- Encoder Benchmarks
+# add_executable(benchmark_encoder main_benchmark_encoder.cpp
+#         )
 
-target_compile_features(benchmark_encoder PUBLIC cxx_std_17)
+# target_compile_features(benchmark_encoder PUBLIC cxx_std_17)
 
-target_link_libraries(benchmark_encoder
-        PRIVATE
-        LDPC4QKD::LDPC4QKD
-        benchmark::benchmark
-        )
+# target_link_libraries(benchmark_encoder
+#         PRIVATE
+#         LDPC4QKD::LDPC4QKD
+#         benchmark::benchmark
+#         )
 
-target_include_directories(benchmark_encoder
-        PRIVATE
-        )
+# target_include_directories(benchmark_encoder
+#         PRIVATE
+#         )
 
-# --------------------------------------------------------------------------------------------------- Decoder Benchmarks
-add_executable(benchmark_decoder main_benchmark_decoder.cpp
-        )
+# # --------------------------------------------------------------------------------------------------- Decoder Benchmarks
+# add_executable(benchmark_decoder main_benchmark_decoder.cpp
+#         )
 
-target_compile_features(benchmark_decoder PUBLIC cxx_std_17)
+# target_compile_features(benchmark_decoder PUBLIC cxx_std_17)
 
-target_link_libraries(benchmark_decoder
-        PRIVATE
-        LDPC4QKD::LDPC4QKD
-        benchmark::benchmark
-        )
+# target_link_libraries(benchmark_decoder
+#         PRIVATE
+#         LDPC4QKD::LDPC4QKD
+#         benchmark::benchmark
+#         )
 
-target_include_directories(benchmark_decoder
-        PRIVATE
-        )
+# target_include_directories(benchmark_decoder
+#         PRIVATE
+#         )
 
 # ------------------------------------------------------------------------------------------ Frame error rate simulation
 add_executable(frame_error_rate_simulation main_frame_error_rate_simulation.cpp
