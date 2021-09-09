@@ -41,7 +41,6 @@ target_include_directories(unit_tests_error_correction
 target_link_libraries(unit_tests_error_correction
         PRIVATE
         gtest_main
-        pthread
 
         # To be tested:
         LDPC4QKD::LDPC4QKD

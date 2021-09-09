@@ -12,14 +12,14 @@ int main(int argc, char **argv) {
     return RUN_ALL_TESTS();
 }
 
-
+/* 
 TEST(TestUtils, valgrind_check) {
     // Running this test is only useful with valgrind memory check tool enabled.
     // This test mishandles memory on purpose to make sure if the error is detected by valgrind.
     int x, y = 0;
     if (x == 42) y = 2; // Should give UninitCondition warning!
     else y++;
-}
+} */
 
 
 TEST(TestUtils, hash_vector) {

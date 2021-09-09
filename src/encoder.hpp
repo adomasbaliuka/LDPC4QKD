@@ -56,17 +56,13 @@ namespace LDPC4QKD {
     constexpr void rate_adapt(
             const std::array<Bit, AutogenLDPC::M> &syndrome, std::array<Bit, reduced_size> &reduced_syndrome) {
         using AutogenRateAdapt::rows;
-        static_assert(reduced_syndrome.size() < syndrome.size(),
-                "Requested rate adapted syndrome size must be less than the original syndrome size.");
 
-        constexpr std::size_t n_row_combs = syndrome.size() - reduced_syndrome.size();
-        static_assert(rows.size() / 2 >= n_row_combs,
-                "The specified rate adaption does not support such a high amount of line combinations.");
+        std::size_t n_row_combs = syndrome.size() - reduced_syndrome.size();
 
         // Depending on the rate adaption requested, only part of the `rows` array will be used.
         // This corresponds to `used_rows.end()`,
         // where `used_rows` is the portion of `rows` that is relevant for the specified rate (given by `reduced_size`)
-        constexpr auto rows_end_indx = rows.begin() + 2 * n_row_combs;
+        auto rows_end_indx = rows.begin() + 2 * n_row_combs;
 
         std::size_t reduced_syndrome_idx{};
         for (std::size_t i{}; i < syndrome.size(); ++i) {
